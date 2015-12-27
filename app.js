@@ -67,11 +67,13 @@ var plugin = {
             externalApplicationStorageDirectory : window.resolveLocalFileSystemURL(cordova.file.externalApplicationStorageDirectory),
             externalDataDirectory : window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory),
             externalCacheDirectory : window.resolveLocalFileSystemURL(cordova.file.externalCacheDirectory),
-            externalRootDirectory : window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory),
+            externalRootDirectory : window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory)
+            /* 
             tempDirectory : window.resolveLocalFileSystemURL(cordova.file.tempDirectory),
             syncedDataDirectory : window.resolveLocalFileSystemURL(cordova.file.syncedDataDirectory),
             documentsDirectory : window.resolveLocalFileSystemURL(cordova.file.documentsDirectory),
             sharedDirectory : window.resolveLocalFileSystemURL(cordova.file.sharedDirectory)
+            */
         };
         $('#resultPlugin').html(data);
     },
