@@ -75,8 +75,8 @@ var plugin = {
             sharedDirectory : window.resolveLocalFileSystemURL(cordova.file.sharedDirectory)
             */
         };
-        var theKeys = Object.keys(plugin.directories)
-        $('#resultPlugin').html(theKeys);
+
+        $('#resultPlugin').html(JSON.stringify(plugin.directories));
     },
     test4 : function (data) {
         //$('#resultPlugin').html(data);
