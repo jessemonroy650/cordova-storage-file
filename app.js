@@ -46,8 +46,8 @@ var app = {
 document.addEventListener("deviceready", app.onDeviceReady, false);
 
 var plugin = {
-    self : {},
-    db   : {},
+    self        : {},
+    directories : {},
 
     // Is API available?
     test : function () {
@@ -57,10 +57,31 @@ var plugin = {
     test2 : function (data) {
         $('#resultPlugin').html(data);
     },
-    test3 : function () {
+    test3 : function (data) {
+        plugin.directories = {
+            applicationDirectory : window.resolveLocalFileSystemURL(cordova.file.applicationDirectory),
+            applicationStorageDirectory : window.resolveLocalFileSystemURL(cordova.file.applicationStorageDirectory),
+            dataDirectory : window.resolveLocalFileSystemURL(cordova.file.dataDirectory),
+            cacheDirectory : window.resolveLocalFileSystemURL(cordova.file.cacheDirectory),
+            externalApplicationStorageDirectory : window.resolveLocalFileSystemURL(cordova.file.externalApplicationStorageDirectory),
+            externalDataDirectory : window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory),
+            externalCacheDirectory : window.resolveLocalFileSystemURL(cordova.file.externalCacheDirectory),
+            externalRootDirectory : window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory),
+            tempDirectory : window.resolveLocalFileSystemURL(cordova.file.tempDirectory),
+            syncedDataDirectory : window.resolveLocalFileSystemURL(cordova.file.syncedDataDirectory),
+            documentsDirectory : window.resolveLocalFileSystemURL(cordova.file.documentsDirectory),
+            sharedDirectory : window.resolveLocalFileSystemURL(cordova.file.sharedDirectory)
+        };
+        $('#resultPlugin').html(data);
+    },
+    test4 : function (data) {
+        //$('#resultPlugin').html(data);
     },
     // See alternate method: http://code.tutsplus.com/tutorials/working-with-indexeddb--net-34673 under "Let's Get Started"
     isAvailable: function (type) {
         return (type in window) ?  true : false;
     }
 };
+
+
+

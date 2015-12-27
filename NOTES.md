@@ -6,7 +6,7 @@ Date: 2015-12-26
 
 As of v1.2.0, URLs to important file-system directories are provided. Each URL is in the form `file:///path/to/spot/`, and can be converted to a `DirectoryEntry` using `window.resolveLocalFileSystemURL()`.
 
-DirectoryEntry                      | Andriod  | iOS | BB 10 | OSX | Windows |  What it means
+DirectoryEntry (cordova.file.)      | Andriod  | iOS | BB 10 | OSX | Windows |  What it means
 ------------------------------------|----------|-----|-------|-----|---------|-----------------
 applicationDirectory                |    X     |  X  |   X   |  X  |    X    | **Read-only directory** where the application is installed.
 applicationStorageDirectory         |    X     |  X  |   X   |  X  |    -    | Root directory of the application's sandbox; on iOS & windows this location is read-only (but specific subdirectories [like `/Documents` on iOS or `/localState` on windows] are read-write). All data contained within is private to the app.
