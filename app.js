@@ -58,6 +58,7 @@ var plugin = {
         $('#resultPlugin').html(data);
     },
     test3 : function (data) {
+        $('#resultPlugin').html('test3');
         plugin.directories = {
             applicationDirectory : window.resolveLocalFileSystemURL(cordova.file.applicationDirectory),
             applicationStorageDirectory : window.resolveLocalFileSystemURL(cordova.file.applicationStorageDirectory),
