@@ -62,6 +62,7 @@ var plugin = {
         var url  = cordova.file.applicationDirectory + "www/index.html";
         var url2 = cordova.file.applicationStorageDirectory;
         var url3 = cordova.file.dataDirectory;
+        var url4 = cordova.file.cacheDirectory;
         window.resolveLocalFileSystemURL(url, function (fileEntry) {
             $('#resultPlugin').html(fileEntry.fullPath + ":"  +  fileEntry.isFile);
 
@@ -70,13 +71,35 @@ var plugin = {
 
                 window.resolveLocalFileSystemURL(url3, function (fileEntry) {
                     $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + fileEntry.fullPath);
+
+                    window.resolveLocalFileSystemURL(url4, function (fileEntry) {
+                        $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + fileEntry.fullPath);
+                    });
                 });
             });
         });
-
     },
     test4 : function (data) {
-        //$('#resultPlugin').html(data);
+        $('#resultPlugin').html('test4');
+        var url5 = cordova.file.externalApplicationStorageDirectory;
+        var url6 = cordova.file.externalDataDirectory;
+        var url7 = cordova.file.externalCacheDirectory;
+        var url8 = cordova.file.externalRootDirectory;
+        window.resolveLocalFileSystemURL(url5, function (fileEntry) {
+            $('#resultPlugin').html(fileEntry.fullPath + ":"  +  fileEntry.isFile);
+
+            window.resolveLocalFileSystemURL(url6, function (fileEntry) {
+                $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + fileEntry.fullPath);
+
+                window.resolveLocalFileSystemURL(url7, function (fileEntry) {
+                    $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + fileEntry.fullPath);
+
+                    window.resolveLocalFileSystemURL(url8, function (fileEntry) {
+                        $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + fileEntry.fullPath);
+                    });
+                });
+            });
+        });
     },
     // See alternate method: http://code.tutsplus.com/tutorials/working-with-indexeddb--net-34673 under "Let's Get Started"
     isAvailable: function (type) {

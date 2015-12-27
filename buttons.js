@@ -13,3 +13,7 @@ $('#closePlugin').click(function () {
 $('#checkDirs').click(function () {
     plugin.test3('#checkDirs');
 });
+
+$('#checkExtern').click(function () {
+    plugin.test4('#checkExtern');
+});
