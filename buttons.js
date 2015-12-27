@@ -17,3 +17,11 @@ $('#checkDirs').click(function () {
 $('#checkExtern').click(function () {
     plugin.test4('#checkExtern');
 });
+
+$('#readFile').click(function () {
+    plugin.test5('#readFile');
+});
+
+$('#writeFile').click(function () {
+    plugin.test6('#writeFile');
+});

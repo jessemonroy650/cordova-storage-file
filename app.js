@@ -58,7 +58,7 @@ var plugin = {
         $('#resultPlugin').html(data);
     },
     test3 : function (data) {
-        $('#resultPlugin').html('test3');
+        $('#resultPlugin').html(data);
         var url  = cordova.file.applicationDirectory + "www/index.html";
         var url2 = cordova.file.applicationStorageDirectory;
         var url3 = cordova.file.dataDirectory;
@@ -80,7 +80,7 @@ var plugin = {
         });
     },
     test4 : function (data) {
-        $('#resultPlugin').html('test4');
+        $('#resultPlugin').html(data);
         var url5 = cordova.file.externalApplicationStorageDirectory;
         var url6 = cordova.file.externalDataDirectory;
         var url7 = cordova.file.externalCacheDirectory;
@@ -100,6 +100,27 @@ var plugin = {
                 });
             });
         });
+    },
+    test5 : function (data) {
+        $('#resultPlugin').html(data);
+        var url  = cordova.file.applicationDirectory + "www/README.md";
+
+        window.resolveLocalFileSystemURL(url, function (fileEntry) {
+            fileEntry.file(function(file) {
+
+                var reader = new FileReader();
+
+                reader.onloadend = function(e) {
+                    //document.querySelector("#textArea").innerHTML = this.result;
+                    $('#outputData').html(this.result);
+                }
+
+                reader.readAsText(file);
+            });
+        });
+    },
+    test6 : function (data) {
+        $('#resultPlugin').html(data);
     },
     // See alternate method: http://code.tutsplus.com/tutorials/working-with-indexeddb--net-34673 under "Let's Get Started"
     isAvailable: function (type) {
