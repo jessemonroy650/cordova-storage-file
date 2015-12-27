@@ -67,13 +67,13 @@ var plugin = {
             $('#resultPlugin').html(fileEntry.fullPath + ":"  +  fileEntry.isFile);
 
             window.resolveLocalFileSystemURL(url2, function (fileEntry) {
-                $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + fileEntry.fullPath);
+                $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + fileEntry.fullPath  + ":"  +  fileEntry.isDirectory);
 
                 window.resolveLocalFileSystemURL(url3, function (fileEntry) {
-                    $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + fileEntry.fullPath);
+                    $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + fileEntry.fullPath  + ":"  +  fileEntry.isDirectory);
 
                     window.resolveLocalFileSystemURL(url4, function (fileEntry) {
-                        $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + fileEntry.fullPath);
+                        $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + fileEntry.fullPath  + ":"  +  fileEntry.isDirectory);
                     });
                 });
             });
@@ -86,16 +86,16 @@ var plugin = {
         var url7 = cordova.file.externalCacheDirectory;
         var url8 = cordova.file.externalRootDirectory;
         window.resolveLocalFileSystemURL(url5, function (fileEntry) {
-            $('#resultPlugin').html(fileEntry.fullPath + ":"  +  fileEntry.isFile);
+            $('#resultPlugin').html(fileEntry.fullPath + ":"  +  fileEntry.isDirectory);
 
             window.resolveLocalFileSystemURL(url6, function (fileEntry) {
-                $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + fileEntry.fullPath);
+                $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + fileEntry.fullPath  + ":"  +  fileEntry.isDirectory);
 
                 window.resolveLocalFileSystemURL(url7, function (fileEntry) {
-                    $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + fileEntry.fullPath);
+                    $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + fileEntry.fullPath  + ":"  +  fileEntry.isDirectory);
 
                     window.resolveLocalFileSystemURL(url8, function (fileEntry) {
-                        $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + fileEntry.fullPath);
+                        $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + fileEntry.fullPath  + ":"  +  fileEntry.isDirectory);
                     });
                 });
             });
