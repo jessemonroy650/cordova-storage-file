@@ -59,10 +59,19 @@ var plugin = {
     },
     test3 : function (data) {
         $('#resultPlugin').html('test3');
-        var url = cordova.file.applicationDirectory + "www/index.html";
+        var url  = cordova.file.applicationDirectory + "www/index.html";
+        var url2 = cordova.file.applicationStorageDirectory;
+        var url3 = cordova.file.dataDirectory;
         window.resolveLocalFileSystemURL(url, function (fileEntry) {
-            plugin.directories.applicationDirectory = fileEntry.fullPath;
-            $('#resultPlugin').html(fileEntry.fullPath);
+            $('#resultPlugin').html(fileEntry.fullPath + ":"  +  fileEntry.isFile);
+
+            window.resolveLocalFileSystemURL(url2, function (fileEntry) {
+                $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + fileEntry.fullPath);
+
+                window.resolveLocalFileSystemURL(url3, function (fileEntry) {
+                    $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + fileEntry.fullPath);
+                });
+            });
         });
 
     },
