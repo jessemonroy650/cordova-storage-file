@@ -59,10 +59,10 @@ var plugin = {
     },
     test3 : function (data) {
         $('#resultPlugin').html('test3');
-
-        window.resolveLocalFileSystemURL(cordova.file.applicationDirectory, function (entry) {
-            plugin.directories.applicationDirectory = entry;
-            $('#resultPlugin').html(entry);
+        var url = cordova.file.applicationDirectory + "www/index.html";
+        window.resolveLocalFileSystemURL(url, function (fileEntry) {
+            plugin.directories.applicationDirectory = fileEntry.fullPath;
+            $('#resultPlugin').html(fileEntry.fullPath);
         });
 
     },
