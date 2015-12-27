@@ -6,7 +6,7 @@ Date: 2015-12-26
 
 As of v1.2.0, URLs to important file-system directories are provided. Each URL is in the form `file:///path/to/spot/`, and can be converted to a `DirectoryEntry` using `window.resolveLocalFileSystemURL()`.
 
-**NOTE:** Trying to use `DirectoryEntry` when it does not exist will cause a function to fail. So, only use the `DirectoryEntry` for the appropriate file system.
+**NOTE:** Trying to use `DirectoryEntry`, when it does not exist, will cause a function to fail. So, only use the `DirectoryEntry` with the appropriate file system.
 
 DirectoryEntry (cordova.file.)      | Andriod  | iOS | BB 10 | OSX | Windows |  What it means
 ------------------------------------|----------|-----|-------|-----|---------|-----------------

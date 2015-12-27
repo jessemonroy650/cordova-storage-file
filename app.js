@@ -59,6 +59,7 @@ var plugin = {
     },
     test3 : function (data) {
         $('#resultPlugin').html('test3');
+
         plugin.directories = {
             applicationDirectory : window.resolveLocalFileSystemURL(cordova.file.applicationDirectory),
             applicationStorageDirectory : window.resolveLocalFileSystemURL(cordova.file.applicationStorageDirectory),
@@ -68,15 +69,18 @@ var plugin = {
             externalDataDirectory : window.resolveLocalFileSystemURL(cordova.file.externalDataDirectory),
             externalCacheDirectory : window.resolveLocalFileSystemURL(cordova.file.externalCacheDirectory),
             externalRootDirectory : window.resolveLocalFileSystemURL(cordova.file.externalRootDirectory)
-            /* 
+            /* NOT ANDROID BELOW HERE */
+/*
             tempDirectory : window.resolveLocalFileSystemURL(cordova.file.tempDirectory),
             syncedDataDirectory : window.resolveLocalFileSystemURL(cordova.file.syncedDataDirectory),
             documentsDirectory : window.resolveLocalFileSystemURL(cordova.file.documentsDirectory),
             sharedDirectory : window.resolveLocalFileSystemURL(cordova.file.sharedDirectory)
-            */
+*/
         };
 
-        $('#resultPlugin').html(JSON.stringify(plugin.directories));
+        plugin.directories.applicationDirectory = window.resolveLocalFileSystemURL(cordova.file.applicationDirectory);
+
+        $('#resultPlugin').html(plugin.directories.applicationDirectory);
     },
     test4 : function (data) {
         //$('#resultPlugin').html(data);
