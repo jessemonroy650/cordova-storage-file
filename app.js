@@ -132,6 +132,7 @@ var plugin = {
             // $('#resultPlugin').html("onInitFS");
             // $('#resultPlugin').html("fs.root:" + JSON.stringify(fs.root));
             $('#resultPlugin').html("in fs.root:" + plugin.isThere('getFile', fs.root));
+            $('#resultPlugin').html('url:' + url);
 
             fs.root.getFile(url, {create: true}, function(fileEntry) {
                 $('#resultPlugin').html("getFile");
