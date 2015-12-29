@@ -132,6 +132,7 @@ var plugin = {
             $('#resultPlugin').html("gotInitFS");
             // Create a FileWriter object for our FileEntry (log.txt).
             fileEntry.createWriter(function(fileWriter) {
+                $('#resultPlugin').html("createWriter");
 
                 fileWriter.onwriteend = function(e) {
                     $('#resultPlugin').html('Write completed.');
