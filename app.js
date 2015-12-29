@@ -194,8 +194,7 @@ var plugin = {
     },
     isThere : function (type, object) {
         return (type in object) ?  true : false;
-    }
-
+    },
     // See alternate method: http://code.tutsplus.com/tutorials/working-with-indexeddb--net-34673 under "Let's Get Started"
     isAvailable : function (type) {
         return (type in window) ?  true : false;
