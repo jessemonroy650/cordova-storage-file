@@ -129,8 +129,9 @@ var plugin = {
         var url  = cordova.file.applicationStorageDirectory + "data.txt";
 
         var onInitFS = function(fs) {
-            $('#resultPlugin').html("gotInitFS");
+            $('#resultPlugin').html("onInitFS");
             fs.root.getFile('log.txt', {create: true}, function(fileEntry) {
+                $('#resultPlugin').html("getFile");
 
                 // Create a FileWriter object for our FileEntry (log.txt).
                 fileEntry.createWriter(function(fileWriter) {
