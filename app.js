@@ -130,6 +130,7 @@ var plugin = {
 
         var onInitFS = function(fs) {
             // $('#resultPlugin').html("onInitFS");
+            url  = fs.root.nativeURL + "data.txt";
             $('#outputData').html("fs.root:" + JSON.stringify(fs.root));
             $('#resultPlugin').html("in fs.root:" + plugin.isThere('getFile', fs.root));
             $('#resultPlugin').html('url:' + url);
