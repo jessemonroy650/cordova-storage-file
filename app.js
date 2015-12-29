@@ -131,6 +131,7 @@ var plugin = {
         var onInitFS = function(fs) {
             $('#resultPlugin').html("onInitFS");
             $('#resultPlugin').html("fs.root:" + JSON.stringify(fs.root));
+            $('#resultPlugin').html("in fs.root:" + (getFile in fs.root));
 
             fs.root.getFile('log.txt', {create: true}, function(fileEntry) {
                 $('#resultPlugin').html("getFile");
