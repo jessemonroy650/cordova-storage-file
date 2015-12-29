@@ -131,7 +131,7 @@ var plugin = {
         var onInitFS = function(fs) {
             $('#resultPlugin').html("onInitFS");
             $('#resultPlugin').html("fs.root:" + JSON.stringify(fs.root));
-            $('#resultPlugin').html("in fs.root:" + (getFile in fs.root));
+            $('#resultPlugin').html("in fs.root:" + plugin.isThere('getFile', fs.root));
 
             fs.root.getFile('log.txt', {create: true}, function(fileEntry) {
                 $('#resultPlugin').html("getFile");
@@ -192,9 +192,12 @@ var plugin = {
         };
         return msg;
     },
+    isThere : function (type, object) {
+        return (type in object) ?  true : false;
+    }
 
     // See alternate method: http://code.tutsplus.com/tutorials/working-with-indexeddb--net-34673 under "Let's Get Started"
-    isAvailable: function (type) {
+    isAvailable : function (type) {
         return (type in window) ?  true : false;
     }
 };
