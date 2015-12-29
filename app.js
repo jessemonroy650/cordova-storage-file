@@ -133,7 +133,7 @@ var plugin = {
             // $('#resultPlugin').html("fs.root:" + JSON.stringify(fs.root));
             $('#resultPlugin').html("in fs.root:" + plugin.isThere('getFile', fs.root));
 
-            fs.root.getFile('log.txt', {create: true}, function(fileEntry) {
+            fs.root.getFile(url, {create: true}, function(fileEntry) {
                 $('#resultPlugin').html("getFile");
 
                 // Create a FileWriter object for our FileEntry (log.txt).
@@ -142,12 +142,12 @@ var plugin = {
 
                     fileWriter.onwriteend = function(e) {
                         $('#resultPlugin').html('Write completed.');
-                        alert('Write completed.');
+                        //alert('Write completed.');
                     };
 
                     fileWriter.onerror = function(e) {
-                        $('#resultPlugin').html('Write failed: ' + e.toString());
-                        alert('Write failed: ' + e.toString());
+                        $('#outputError').html('Write failed: ' + e.toString());
+                        //alert('Write failed: ' + e.toString());
                     };
 
                     // Create a new Blob and write it to log.txt.
