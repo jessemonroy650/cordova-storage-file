@@ -130,11 +130,11 @@ var plugin = {
 
         var onInitFS = function(fs) {
             // $('#resultPlugin').html("onInitFS");
-            // $('#resultPlugin').html("fs.root:" + JSON.stringify(fs.root));
+            $('#outputData').html("fs.root:" + JSON.stringify(fs.root));
             $('#resultPlugin').html("in fs.root:" + plugin.isThere('getFile', fs.root));
-            $('#resultPlugin').html('url:' + url);
+            //$('#resultPlugin').html('url:' + url);
 
-            fs.root.getFile(url, {create: true}, function(fileEntry) {
+            fs.root.getFile("data.txt", {create: true}, function(fileEntry) {
                 $('#resultPlugin').html("getFile");
 
                 // Create a FileWriter object for our FileEntry (log.txt).
