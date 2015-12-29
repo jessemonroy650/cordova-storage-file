@@ -54,9 +54,11 @@ var plugin = {
         console.log("app.test");
         $('#isavailable').html(plugin.isAvailable('requestFileSystem'));
     },
+    // Open/Close
     test2 : function (data) {
         $('#resultPlugin').html(data);
     },
+    // Support directory constants (on device)
     test3 : function (data) {
         $('#resultPlugin').html(data);
         var url  = cordova.file.applicationDirectory + "www/index.html";
@@ -79,6 +81,7 @@ var plugin = {
             });
         });
     },
+    // Support directory constants (on device external)
     test4 : function (data) {
         $('#resultPlugin').html(data);
         var url5 = cordova.file.externalApplicationStorageDirectory;
@@ -125,8 +128,32 @@ var plugin = {
         $('#resultPlugin').html(data);
         var url  = cordova.file.applicationStorageDirectory + "data.txt";
 
+        var gotInitFS = function(fileEntry) {
+            // Create a FileWriter object for our FileEntry (log.txt).
+            fileEntry.createWriter(function(fileWriter) {
+
+                fileWriter.onwriteend = function(e) {
+                    alert('Write completed.');
+                };
+
+                fileWriter.onerror = function(e) {
+                    alert('Write failed: ' + e.toString());
+                };
+
+                // Create a new Blob and write it to log.txt.
+                var blob = new Blob(['Lorem Ipsum'], {type: 'text/plain'});
+
+                fileWriter.write(blob);
+            });
+        };
+
+        window.requestFileSystem(window.PERSISTENT, 1024, gotInitFS, handleError)
     },
-    errorHandler : function (e) {
+    handleError : function (e) {
+        console.log(plugin.errorDecode(e));
+        alert(plugin.errorDecode(e));
+    },
+    errorDecode : function (e) {
         var msg = '';
 
         switch (e.code) {
