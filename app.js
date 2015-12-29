@@ -129,8 +129,8 @@ var plugin = {
         var url  = cordova.file.applicationStorageDirectory + "data.txt";
 
         var onInitFS = function(fs) {
-            $('#resultPlugin').html("onInitFS");
-            $('#resultPlugin').html("fs.root:" + JSON.stringify(fs.root));
+            // $('#resultPlugin').html("onInitFS");
+            // $('#resultPlugin').html("fs.root:" + JSON.stringify(fs.root));
             $('#resultPlugin').html("in fs.root:" + plugin.isThere('getFile', fs.root));
 
             fs.root.getFile('log.txt', {create: true}, function(fileEntry) {
@@ -154,8 +154,8 @@ var plugin = {
                     var blob = new Blob(['Lorem Ipsum'], {type: 'text/plain'});
 
                     fileWriter.write(blob);
-                }, handleError);
-            }, handleError);
+                }, plugin.handleError);
+            }, plugin.handleError);
         };
 
         window.requestFileSystem(window.PERSISTENT, 1024, onInitFS, plugin.handleError)
