@@ -134,7 +134,7 @@ var plugin = {
             $('#resultPlugin').html("in fs.root:" + plugin.isThere('getFile', fs.root));
             $('#resultPlugin').html('url:' + url);
 
-            fs.root.getFile(url, {create: true}, function(fileEntry) {
+            fs.root.getFile(url, {create: true, exclusive: false}, function(fileEntry) {
                 $('#resultPlugin').html("getFile");
 
                 // Create a FileWriter object for our FileEntry (log.txt).
@@ -164,6 +164,7 @@ var plugin = {
     },
     handleError : function (e) {
         $('#outputError').html('handleError');
+        $('#outputError').addClass('error');
         $('#outputError').html(plugin.errorDecode(e));
         console.log(plugin.errorDecode(e));
         //alert(plugin.errorDecode(e));
