@@ -8,3 +8,4 @@
     .red   {color:red;}
     .green {color:green;}
     .blue  {color:blue;}
+    .error {color:white;background-color:red;padding:0.1em}
