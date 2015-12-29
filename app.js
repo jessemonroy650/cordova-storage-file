@@ -159,8 +159,10 @@ var plugin = {
         $('#resultPlugin').html('requestFileSystem completed.');
     },
     handleError : function (e) {
+        $('#outputError').html('handleError');
+        $('#outputError').html(plugin.errorDecode(e));
         console.log(plugin.errorDecode(e));
-        alert(plugin.errorDecode(e));
+        //alert(plugin.errorDecode(e));
     },
     errorDecode : function (e) {
         var msg = '';
