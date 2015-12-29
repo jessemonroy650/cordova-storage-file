@@ -2,6 +2,20 @@
 Date: 2015-12-26
 
 
+Based on https://www.npmjs.com/package/cordova-plugin-file
+
+*Related*
+
+- http://www.w3.org/TR/FileAPI/
+- http://www.w3.org/TR/2012/WD-file-system-api-20120417/
+- http://dev.w3.org/2009/dap/file-system/file-writer.html
+
+*References*
+
+- general http://www.html5rocks.com/en/tutorials/file/filesystem/
+- reader http://www.raymondcamden.com/2014/07/15/Cordova-Sample-Reading-a-text-file
+- writer http://code.tutsplus.com/tutorials/toying-with-the-html5-file-system-api--net-24719 
+
 ## Where to Store Files ##
 
 As of v1.2.0, URLs to important file-system directories are provided. Each URL is in the form `file:///path/to/spot/`, and can be converted to a `DirectoryEntry` using `window.resolveLocalFileSystemURL()`.

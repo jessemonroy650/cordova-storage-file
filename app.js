@@ -128,30 +128,33 @@ var plugin = {
         $('#resultPlugin').html(data);
         var url  = cordova.file.applicationStorageDirectory + "data.txt";
 
-        var gotInitFS = function(fileEntry) {
+        var onInitFS = function(fs) {
             $('#resultPlugin').html("gotInitFS");
-            // Create a FileWriter object for our FileEntry (log.txt).
-            fileEntry.createWriter(function(fileWriter) {
-                $('#resultPlugin').html("createWriter");
+            fs.root.getFile('log.txt', {create: true}, function(fileEntry) {
 
-                fileWriter.onwriteend = function(e) {
-                    $('#resultPlugin').html('Write completed.');
-                    alert('Write completed.');
-                };
+                // Create a FileWriter object for our FileEntry (log.txt).
+                fileEntry.createWriter(function(fileWriter) {
+                    $('#resultPlugin').html("createWriter");
 
-                fileWriter.onerror = function(e) {
-                    $('#resultPlugin').html('Write failed: ' + e.toString());
-                    alert('Write failed: ' + e.toString());
-                };
+                    fileWriter.onwriteend = function(e) {
+                        $('#resultPlugin').html('Write completed.');
+                        alert('Write completed.');
+                    };
 
-                // Create a new Blob and write it to log.txt.
-                var blob = new Blob(['Lorem Ipsum'], {type: 'text/plain'});
+                    fileWriter.onerror = function(e) {
+                        $('#resultPlugin').html('Write failed: ' + e.toString());
+                        alert('Write failed: ' + e.toString());
+                    };
 
-                fileWriter.write(blob);
-            });
+                    // Create a new Blob and write it to log.txt.
+                    var blob = new Blob(['Lorem Ipsum'], {type: 'text/plain'});
+
+                    fileWriter.write(blob);
+                }, handleError);
+            }, handleError);
         };
 
-        window.requestFileSystem(window.PERSISTENT, 1024, gotInitFS, plugin.handleError)
+        window.requestFileSystem(window.PERSISTENT, 1024, onInitFS, plugin.handleError)
         $('#resultPlugin').html('requestFileSystem completed.');
     },
     handleError : function (e) {
