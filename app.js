@@ -150,7 +150,7 @@ var plugin = {
             });
         };
 
-        window.requestFileSystem(window.PERSISTENT, 1024, gotInitFS, handleError)
+        window.requestFileSystem(window.PERSISTENT, 1024, gotInitFS, plugin.handleError)
         $('#resultPlugin').html('requestFileSystem completed.');
     },
     handleError : function (e) {
