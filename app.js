@@ -107,9 +107,9 @@ var plugin = {
     // Read File
     test5 : function (data) {
         $('#resultPlugin').html(data);
-        var url  = cordova.file.applicationDirectory + "www/README.md";
+        //var url  = cordova.file.applicationDirectory + "www/README.md";
 
-        window.resolveLocalFileSystemURL(url, function (fileEntry) {
+        window.resolveLocalFileSystemURL("data.txt", function (fileEntry) {
             fileEntry.file(function(file) {
 
                 var reader = new FileReader();
