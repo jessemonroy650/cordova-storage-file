@@ -107,9 +107,9 @@ var plugin = {
     // Read File
     test5 : function (data) {
         $('#resultPlugin').html(data);
-        //var url  = cordova.file.applicationDirectory + "www/README.md";
+        var url  = cordova.file.applicationDirectory + "www/README.md";
 
-        window.resolveLocalFileSystemURL("data.txt", function (fileEntry) {
+        window.resolveLocalFileSystemURL(url, function (fileEntry) {
             fileEntry.file(function(file) {
 
                 var reader = new FileReader();
@@ -126,7 +126,7 @@ var plugin = {
     // write File
     test6 : function (data) {
         $('#resultPlugin').html(data);
-        var url  = cordova.file.applicationStorageDirectory + "data.txt";
+        var url  = cordova.file.dataDirectory + "data.txt";
 
         var onInitFS = function(fs) {
             // $('#resultPlugin').html("onInitFS");
@@ -134,7 +134,7 @@ var plugin = {
             $('#resultPlugin').html("in fs.root:" + plugin.isThere('getFile', fs.root));
             //$('#resultPlugin').html('url:' + url);
 
-            fs.root.getFile("data.txt", {create: true}, function(fileEntry) {
+            fs.root.getFile(url, {create: true}, function(fileEntry) {
                 $('#resultPlugin').html("getFile");
 
                 // Create a FileWriter object for our FileEntry (log.txt).
