@@ -151,6 +151,7 @@ var plugin = {
         };
 
         window.requestFileSystem(window.PERSISTENT, 1024, gotInitFS, handleError)
+        $('#resultPlugin').html('requestFileSystem completed.');
     },
     handleError : function (e) {
         console.log(plugin.errorDecode(e));
