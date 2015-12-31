@@ -143,7 +143,7 @@ var plugin = {
                     $('#resultPlugin').html("createWriter:"+JSON.stringify(fileWriter));
 
                     fileWriter.onwriteend = function(e) {
-                        $('#resultPlugin').html('Write completed.');
+                        $('#resultPlugin').html($('#resultPlugin').html() + "<br>" + 'Write completed.');
                         //alert('Write completed.');
                     };
 
