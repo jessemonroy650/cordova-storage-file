@@ -135,12 +135,12 @@ var plugin = {
             $('#resultPlugin').html("in fs.root:" + plugin.isThere('getFile', fs.root));
             $('#resultPlugin').html('url:' + url);
 
-            fs.root.getFile(url, {create: true, exclusive: false}, function(fileEntry) {
+            fs.root.getFile("log.txt", {create: true, exclusive: false}, function(fileEntry) {
                 $('#resultPlugin').html("getFile");
 
                 // Create a FileWriter object for our FileEntry (log.txt).
                 fileEntry.createWriter(function(fileWriter) {
-                    $('#resultPlugin').html("createWriter");
+                    $('#resultPlugin').html("createWriter:"+JSON.stringify(fileWriter));
 
                     fileWriter.onwriteend = function(e) {
                         $('#resultPlugin').html('Write completed.');
