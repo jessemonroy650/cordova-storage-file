@@ -153,8 +153,9 @@ var plugin = {
                     };
 
                     // Create a new Blob and write it to log.txt.
-                    var blob = new Blob(['Lorem Ipsum'], {type: 'text/plain'});
-                    //var blob = new Blob(['Lorem Ipsum']);
+                    // This works with either, but the spec (as written) likes the later.
+                    //var blob = new Blob(['Lorem Ipsum'], {type: 'text/plain'});
+                    var blob = new Blob(['Lorem Ipsum']);
 
                     fileWriter.write(blob);
                 }, plugin.handleError);
